@@ -1,0 +1,29 @@
+<div class="container">
+  <a href="#" routerLink="/criar" class="btn btn-success">Criar novo
+    comentario</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Assunto</td>
+        <td>Corpo</td>
+      </tr>
+    </thead>
+    <tbody>
+      @for(manutencao of lista_manutencao; track manutencao.manutencao_id){
+      <tr>
+        <td>{{manutencao.manutencao_id }}</td>
+        <td>{{manutencao.manutencao_assunto }}</td>
+        <td>{{manutencao.manutencao_data }}</td>
+        <td>{{manutencao.manutencao_status }}</td>
+        <td>
+          <a href="#" [routerLink]="['/', manutencao.manutencao_id, 'ver']" class="btn
+    btn-info">Ver</a>
+          <a href="#" [routerLink]="['/', manutencao.manutencao_id, 'editar']" class="btn btn-primary">Editar</a>
+          <button type="button" (click)="apagarManutencao(manutencao.manutencao_id)" class="btn btn-danger">Apagar</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Editar Manutenção</h1>
+  <a href="#" routerLink="/principal" class="btn btn-primary">Retornar</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="assunto">Assunto</label>
+      <input formControlName="assunto" id="assunto" type="text" class="form-control">
+      <div *ngIf="f['assunto'].touched && f['assunto'].invalid" class="alert alert-danger">
+        <div *ngIf="f['Assunto'].errors?.['required']">Um assunto é necessário.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="data">Data da manutenção</label>
+      <textarea formControlName="data" id="data" class="form-control">
+      </textarea>
+      <div *ngIf="f['data'].touched && f['data'].invalid" class="alert alert-danger">
+        <div *ngIf="f['data'].errors?.['required']">A data da manutenção é necessária.</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Atualizar</button>
+    <div class="form-group">
+      <label for="status">Status da manutenção</label>
+      <textarea formControlName="status" id="status" class="form-control">
+      </textarea>
+      <div *ngIf="f['status'].touched && f['status'].invalid" class="alert alert-danger">
+        <div *ngIf="f['status'].errors?.['required']">É preciso adicionar um status da manutenção.</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Atualizar</button>
+  </form>
+</div>
